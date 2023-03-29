@@ -68,33 +68,24 @@ const insertFieldIntoBoard = async (
 };
 
 const checkGameStatus = (): void => {
-  const firstRow = board[0].join("");
-  const secondRow = board[1].join("");
-  const thirdRow = board[2].join("");
-  const firstColumn = `${board[0][0]}${board[1][0]}${board[2][0]}`;
-  const secondColumn = `${board[0][1]}${board[1][1]}${board[2][1]}`;
-  const thirdColumn = `${board[0][2]}${board[1][2]}${board[2][2]}`;
-  const leftCross = `${board[0][0]}${board[1][1]}${board[2][2]}`;
-  const rightCross = `${board[0][2]}${board[1][1]}${board[2][0]}`;
+  const boardRows = board.map((row) => row.join(""));
 
-  if (
-    firstRow === tripleO ||
-    firstRow === tripleX ||
-    secondRow === tripleO ||
-    secondRow === tripleX ||
-    thirdRow === tripleO ||
-    thirdRow === tripleX ||
-    firstColumn === tripleO ||
-    firstColumn === tripleX ||
-    secondColumn === tripleO ||
-    secondColumn === tripleX ||
-    thirdColumn === tripleO ||
-    thirdColumn === tripleX ||
-    leftCross === tripleO ||
-    leftCross === tripleX ||
-    rightCross === tripleO ||
-    rightCross === tripleX
-  ) {
+  const boardColumns = [0, 1, 2].map((col) =>
+    board.map((row) => row[col]).join("")
+  );
+
+  const boardDiagonals = [
+    [board[0][0], board[1][1], board[2][2]].join(""),
+    [board[0][2], board[1][1], board[2][0]].join(""),
+  ];
+
+  const allLines = [...boardRows, ...boardColumns, ...boardDiagonals];
+
+  const hasWinner = allLines.some(
+    (line) => line === tripleX || line === tripleO
+  );
+
+  if (hasWinner) {
     console.log("\n");
 
     prettifyBoardPrint();
