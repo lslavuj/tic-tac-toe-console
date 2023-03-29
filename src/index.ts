@@ -34,18 +34,11 @@ const colorizeBoardField = (input: BoardField): string => {
 };
 
 const prettifyBoardPrint = (): void => {
-  board.forEach((boardRow, index) => {
-    const [fieldOne, fieldTwo, fieldThree] = boardRow;
-    console.log(
-      `${colorizeBoardField(fieldOne)} | ${colorizeBoardField(
-        fieldTwo
-      )} | ${colorizeBoardField(fieldThree)}`
-    );
-
-    if (index < 2) {
-      console.log("---------");
-    }
-  });
+  console.log(
+    board
+      .map((row) => row.map(colorizeBoardField).join(" | "))
+      .join("\n---------\n")
+  );
 };
 
 const insertFieldIntoBoard = async (
