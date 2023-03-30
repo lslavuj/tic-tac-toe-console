@@ -12,13 +12,19 @@ This is a Tic Tac Toe game written in TypeScript and Node.js. The game prompts t
 2. Run `npm install` to install the required dependencies.
 3. Run `npm start` to start the game.
 4. Enter which player you want to start first (X or O).
+   ![My Image](assets/images//chose_player.png)
 5. Enter the number of the field where you want to insert your symbol (X or O).
+   ![My Image](assets/images/first_turn.png)
 6. The game will continue until one player wins or the board is full and it's a draw.
+   ![My Image](assets/images/game_finished.png)
+
 7. You can simply stop the game running `ctrl + c` in the console.
 
 ## Features
 
 - Input validation: The game validates user input and prompts the user to enter a valid input if they enter an invalid one.
+  ![My Image](assets/images/wrong_input.png)
+  ![My Image](assets/images/position_taken.png)
 - Colorful symbols: The X symbol is displayed in red and the O symbol is displayed in blue.
 - Interactive interface: The game has an easy-to-use and interactive command line interface.
 
