@@ -13,7 +13,7 @@ This is a Tic Tac Toe game written in TypeScript and Node.js. The game prompts t
 3. Run `npm start` to start the game.
 4. Enter which player you want to start first (X or O).
 
-   ![My Image](.assets/images/chose_player.png)
+   ![My Image](assets/images/choose_player.png)
 
 5. Enter the number of the field where you want to insert your symbol (X or O).
 
